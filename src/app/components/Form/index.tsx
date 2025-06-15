@@ -5,7 +5,7 @@ import style from "./style.module.scss"
  
 interface IForm {
     title: string
-    handlerSubmit: ( email: string, password: string) => void
+    handlerSubmit: ( username: string, password: string) => void
 }
 
 export const Form = ({handlerSubmit, title}:IForm) => {
@@ -20,6 +20,7 @@ export const Form = ({handlerSubmit, title}:IForm) => {
     
     return (
     <div className={style.form__container}>
+      {title}
     <form className={style.form} 
       onSubmit={(e) => {
             e.preventDefault()
