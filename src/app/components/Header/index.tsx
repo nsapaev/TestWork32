@@ -3,10 +3,9 @@ import Link from "next/link"
 import { useAuthStore } from "@/app/store/authStore"
 import { useUserStore } from "@/app/store/userStore"
 import style from "./style.module.scss"
-import { useLogout } from "@/app/hooks/useLogout"
+import { logout } from "./helpers"
 
 export function Header(){
-    const logout = useLogout()
     const isAuth = useAuthStore((state) => state.isAuth())
     const user = useUserStore((state) => state.user)
     
@@ -16,7 +15,6 @@ export function Header(){
     function logoutHandler(){
         logout()
     }
-    console.log("isAuth", isAuth)
 
     if(!isAuth){
         return  <div className={style.header}>
